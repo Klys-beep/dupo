@@ -1,0 +1,365 @@
+body {
+    font-family: 'Courier', monospace;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+h1 {
+    font-family: 'Courier', monospace;
+    color: #374785;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.slides-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    animation: slideIn 0.5s ease-out;
+}
+
+.slide.active {
+    display: block;
+}
+
+.navigation {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    gap: 10px;
+}
+
+.navigation.visible {
+    opacity: 1;
+}
+
+.arrow-btn {
+    background-color: rgba(55, 71, 133, 0.8);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.arrow-btn:hover {
+    background-color: rgba(55, 71, 133, 1);
+    transform: scale(1.1) rotate(10deg);
+}
+
+.impactful-counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6f61;
+    animation: pulse 2s infinite;
+}
+
+.photos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.photo {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: float 3s ease-in-out infinite;
+}
+
+.widget-images {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+.widget-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.widget-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nick-history {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.nick-column {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nick-column h2 {
+    font-size: 1.5rem;
+    color: #374785;
+}
+
+.nick-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nick-column li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.valorant-stats, .fortnite-stats, .bilard-stats {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.valorant-stats p, .fortnite-stats p, .bilard-stats p {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.agent-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.agent {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.agent img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.agent img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.agent-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.agent-hours {
+    font-size: 1rem;
+    color: #374785;
+}
+
+.podium-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.podium-item {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.podium-item img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.first-place {
+    order: 2;
+    background-color: #ffd700;
+}
+
+.second-place {
+    order: 1;
+    background-color: #c0c0c0;
+}
+
+.third-place {
+    order: 3;
+    background-color: #cd7f32;
+}
+
+.other-shows {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.other-shows ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.other-shows li {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+
+.calculations {
+    text-align: left;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculation-step {
+    margin-bottom: 20px;
+}
+
+.calculation-step p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.final-estimate {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+/* Styl dla kontenera z księżycami */
+.moon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    position: relative;
+}
+
+/* Styl dla obrazków księżyców */
+.moon-image {
+    width: 200px; /* Rozmiar księżyców */
+    height: auto;
+    position: absolute;
+    transition: transform 2s ease-in-out;
+}
+
+/* Pozycja początkowa dla lewego księżyca */
+.moon-left {
+    left: -200px; /* Początkowo poza ekranem po lewej */
+}
+
+/* Pozycja początkowa dla prawego księżyca */
+.moon-right {
+    right: -200px; /* Początkowo poza ekranem po prawej */
+}
+
+/* Animacja zbliżania się księżyców do środka */
+.slide.active .moon-left {
+    transform: translateX(100px); /* Przesuń lewy księżyc w prawo */
+}
+
+.slide.active .moon-right {
+    transform: translateX(-100px); /* Przesuń prawy księżyc w lewo */
+}
+
